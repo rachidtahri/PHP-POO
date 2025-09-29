@@ -11,14 +11,18 @@ use App\Client\Compte as CompteClient;
 require_once 'classes/Autoloader.php';
 App\Autoloader::register();
 
-$compte1 = new CompteEpargne("Jean Dupont", 200, 5);
+
+$compte2 = new CompteClient("Marie", "Curie");
+var_dump($compte2);
+echo "<br> <hr> <br>";
+
+
+$compte1 = new CompteEpargne($compte2, 200, 5);
 var_dump($compte1);
 echo "<br> <hr> <br>";
 
-$compte3 = new CompteCourant("Alice", "Durand", 300, 400);
+$compte3 = new CompteCourant($compte2, 300, 400);
 var_dump($compte3);
 echo "<br> <hr> <br>";
 
-$compte2 = new CompteClient("Marie", "Curie");
-echo "<br> <hr> <br>";
-var_dump($compte2);
+
