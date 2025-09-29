@@ -2,40 +2,28 @@
 namespace App\Client;
 
 class Compte {
-    private string $nom;
-    private float $solde;
+   private $nom;
+   private $prenom;
 
-    public function __construct(string $nom, float $soldeInitial = 0) {
-        $this->nom = $nom;
-        $this->solde = $soldeInitial;
-        echo "<hr> <br> Compte client créé pour $nom avec un solde initial de $soldeInitial.\n  <hr> <br>";
+    public function __construct($nom, $prenom) {
+         $this->nom = $nom;
+         $this->prenom = $prenom;
     }
-
-    public function getNom(): string {
+    public function getNom() {
         return $this->nom;
     }
-
-    public function getSolde(): float {
-        return $this->solde;
-    }
-
-    public function deposer(float $montant): void {
-        if ($montant > 0) {
-            $this->solde += $montant;
-        } else {
-            echo "Le montant à déposer doit être positif.\n";
-        }
-    }
-
-    public function retirer(float $montant): void {
-        if ($montant > 0) {
-            if ($montant <= $this->solde) {
-                $this->solde -= $montant;
-            } else {
-                echo "Fonds insuffisants pour retirer ce montant.\n";
-            }
-        } else {
-            echo "Le montant à retirer doit être positif.\n";
-        }
-    }
+     public function getPrenom() {
+          return $this->prenom;
+     }
+     public function setNom($nom) {
+          $this->nom = $nom;
+     }
+     public function setPrenom($prenom) {
+          $this->prenom = $prenom;
+     }
+     public function __toString() {
+          return "Client: " . $this->prenom . " " . $this->nom;
+     }
+     
+    
 }

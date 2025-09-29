@@ -1,26 +1,44 @@
 <?php
 namespace App\Banque;
+use App\Client\Compte as CompteClient;
+
 abstract class Compte
 {
-    private string $titulaire;
+    private CompteClient $titulaire;
     
     private float $solde;
 
-    function __construct(string $titulaire, float $soldeInitial = 100)
+    function __construct(string $nom ,string $prenom , float $soldeInitial = 100)
     {
-        $this->titulaire = $titulaire;
+        $this->titulaire = new CompteClient($nom , $prenom);
         $this->solde = $soldeInitial;
     }
 
-    public function getTitulaire(): string
+    public function getTitulaire(): CompteClient
     {
         return $this->titulaire;
     }   
+
+    public function setTitulaire(CompteClient $titulaire): void
+    {
+        $this->titulaire = $titulaire;
+    }
+
+    public function setTitulaire1(string $nom , string $prenom): void
+    {
+        $this->titulaire->setNom($nom);
+        $this->titulaire->setPrenom($prenom);
+    }
 
     public function getSolde(): float
     {
         return $this->solde;
     }   
+
+    public function setSolde(float $solde): void
+    {
+        $this->solde = $solde;
+    }
 
     public function crediter(float $montant): void
     {

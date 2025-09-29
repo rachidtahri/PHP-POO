@@ -13,3 +13,12 @@ App\Autoloader::register();
 
 $compte1 = new CompteEpargne("Jean Dupont", 200, 5);
 var_dump($compte1);
+echo "<br> <hr> <br>";
+
+$compte3 = new CompteCourant("Alice", "Durand", 300, 400);
+var_dump($compte3);
+echo "<br> <hr> <br>";
+
+$compte2 = new CompteClient("Marie", "Curie");
+echo "<br> <hr> <br>";
+var_dump($compte2);

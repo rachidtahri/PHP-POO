@@ -5,9 +5,9 @@ class CompteCourant extends CompteB
 {
     private float $decouvertAutorise;
 
-    public function __construct(string $titulaire, float $soldeInitial = 100, float $decouvertAutorise = 500)
+    public function __construct(string $nom, $prenom, float $soldeInitial = 100, float $decouvertAutorise = 500)
     {
-        parent::__construct($titulaire, $soldeInitial);
+        parent::__construct($nom, $prenom, $soldeInitial);
         $this->decouvertAutorise = $decouvertAutorise;
     }
 
