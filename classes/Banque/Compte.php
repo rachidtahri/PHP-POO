@@ -8,9 +8,9 @@ abstract class Compte
     
     private float $solde;
 
-    function __construct(string $nom ,string $prenom , float $soldeInitial = 100)
+    function __construct(CompteClient $titulaire, float $soldeInitial = 100)
     {
-        $this->titulaire = new CompteClient($nom , $prenom);
+        $this->titulaire = $titulaire;
         $this->solde = $soldeInitial;
     }
 

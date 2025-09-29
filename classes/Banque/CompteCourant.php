@@ -1,13 +1,15 @@
 <?php
 namespace App\Banque;
 use App\Banque\Compte as CompteB;
+use App\Client\Compte as CompteClient;
+
 class CompteCourant extends CompteB
 {
     private float $decouvertAutorise;
 
-    public function __construct(string $nom, $prenom, float $soldeInitial = 100, float $decouvertAutorise = 500)
+    public function __construct(CompteClient $titulaire, float $soldeInitial = 100, float $decouvertAutorise = 500)
     {
-        parent::__construct($nom, $prenom, $soldeInitial);
+        parent::__construct($titulaire, $soldeInitial);
         $this->decouvertAutorise = $decouvertAutorise;
     }
 
